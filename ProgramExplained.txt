@@ -1,0 +1,51 @@
+//Sean Stasny
+//CSci_423
+//09-16-2014
+
+CSCI423 Programming Assignment 1
+|
+|
+|
+Assignment Details:
+
+The Collatz conjecture concerns what happens when we take any positive integer n and apply the following algorithm:
+
+n = (n/2)       if n is even;
+n = 3 * n + 1   if n is odd;
+
+The conjecture states that when this algorithm is continually applied, all positive integers will eventually reach 1. 
+For example, if n=35, the sequence is
+
+35, 106, 53, 160, 80, 40, 20, 10, 5, 16, 8, 4, 2, 1
+
+Write a C program using the fork() system call that generates this sequence in the child process. 
+The starting number will be provided from the command line. 
+For example, if 8 is passed as a parameter on the command line, the child process will output 8, 4, 2, 1. 
+Have the parent invoke the wait() call to wait for the child process to complete before exiting the program. 
+Perform necessary error checking to ensure that a positive integer is passed on the command line.
+|
+|
+|
+Programmer-to-User Instructions:
+
+hailstone.c: This is the C program for the Collatz conjecture.
+hailstone: This file is the compiled file for hailstone.c.
+
+Program Discription:    See assignment details at top of page...
+
+Program Notes:          The child process will output the sequence of numbers generated from the algorithm specified by the Collatz conjecture. 
+                        This works because the parent and child processes have their own copies of the data. 
+                        
+                        The program perfoms fork(), then enters into a if loop and if pid == 1 (if it is busy) then it 
+                        waits till it equals 0 (not busy). When it is 0 then it can perform the calculations. It checks
+                        to see if it is even or odd and performs the appropriate equation. This repeats until it reaches
+                        one, then it breaks out of the loop.
+                
+To start the program:   To run the assignment go to the terminal and find the directory that contains
+                        the compiled hailstone file. To run the hailstone program type ./hailstone.
+
+Using the program:      First the program will prompt the user to "Enter a positive number to plug into 
+                        the Collatz function." So type in your positive number and press enter and it 
+                        should print the return of the Collatz funtion on the desired number.
+                        
+ENJOY THE HAILSTONE PROGRAM!!!
